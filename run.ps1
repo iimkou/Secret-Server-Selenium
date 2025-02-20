@@ -17,8 +17,14 @@ $seleniumHome = 'C:\selenium'
 # DLLを読み込む
 $webDriverDllPath=(Get-ChildItem -Path $seleniumHome -Filter WebDriver.dll -Recurse).FullName
 $webDriverSupportDllPath=(Get-ChildItem -Path $seleniumHome -Filter WebDriver.Support.dll -Recurse).FullName
+Write-Host "webDriverDllPath="$webDriverDllPath
+Write-Host "`r`n"
+Write-Host "webDriverSupportDllPath="$webDriverDllPath
+
 Add-Type -Path $webDriverDllPath
 Add-Type -Path $webDriverSupportDllPath
+Write-Host "$webDriverDllPath="$webDriverDllPath
+
 
 # Chomeに対してバスをとおす
 $chome_dir = (Get-ChildItem -Path $seleniumHome  -Filter chrome.exe -Recurse).DirectoryName  
